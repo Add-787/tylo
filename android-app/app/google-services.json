@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "507150628329",
+    "project_id": "tylo-5220a",
+    "storage_bucket": "tylo-5220a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507150628329:android:af83e80afa743fc52ec778",
+        "android_client_info": {
+          "package_name": "com.psyluckco.tylo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhNdZieDVsjDScPmVw2i_qZyGzJTrkWfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
