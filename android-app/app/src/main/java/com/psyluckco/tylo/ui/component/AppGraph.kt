@@ -25,9 +25,13 @@ import com.psyluckco.tylo.ui.theme.TyloTheme
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PaintingStyle.Companion.Stroke
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.Stroke
 
 @Composable
 fun AppLineGraph(
@@ -38,7 +42,9 @@ fun AppLineGraph(
     val lineColor = Color(0xFF007AFF) // Blue line color
     val shadeColor = lineColor.copy(alpha = 0.3f) // Lighter blue shade
 
-    Canvas(modifier = modifier.height(100.dp).width(200.dp)) {
+    Canvas(modifier = modifier
+        .height(100.dp)
+        .width(300.dp)) {
         val width = size.width
         val height = size.height
 
@@ -76,15 +82,57 @@ fun AppLineGraph(
             )
         }
     }
-
-
-
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun AppLineGraphPreview() {
     TyloTheme {
-        AppLineGraph(dataPoints = listOf(3.0f,6.0f,4.0f,7.0f,9.0f,7.0f))
+        // AppLineGraph(dataPoints = listOf(3.0f,6.0f,4.0f,7.0f,9.0f,7.0f))
+    }
+}
+
+@Composable
+fun LineChart(
+    modifier: Modifier = Modifier,
+    points: List<Int> = listOf(3,10,9,7,8,2,5,4)
+) {
+
+    val bgColor = MaterialTheme.colorScheme.primary
+
+    Row(
+        modifier = modifier
+    ) {
+        Canvas(modifier = modifier.fillMaxWidth().height(100.dp)) {
+
+            drawCircle(color = bgColor)
+
+            val canvasWidth = size.width
+            val canvasHeight = size.height
+
+            val intervalLength = canvasWidth / points.size
+
+            val path = Path()
+            path.moveTo( intervalLength, canvasHeight/2)
+            path.lineTo(1*intervalLength, canvasHeight/2 - points[0].toFloat() * 9)
+            path.lineTo(2*intervalLength, canvasHeight/2 - points[1].toFloat() * 9)
+            path.lineTo(3*intervalLength, canvasHeight/2 - points[2].toFloat() * 9)
+            path.lineTo(4*intervalLength, canvasHeight/2 - points[3].toFloat() * 9)
+            path.close()
+
+            drawPath(path, Color.Magenta, style = Stroke(width = 5f))
+
+
+        }
+
+    }
+    
+}
+
+@Preview
+@Composable
+private fun LineChartPreview() {
+    TyloTheme {
+        LineChart()
     }
 }
