@@ -18,4 +18,5 @@ object FirebaseModule {
     fun provideFirestore() : FirebaseFirestore {
         return Firebase.firestore
     }
+
 }
