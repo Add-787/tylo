@@ -10,6 +10,7 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,8 +20,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.psyluckco.tylo.ui.component.AppBar
 import com.psyluckco.tylo.ui.component.AppSearchBar
 import com.psyluckco.tylo.ui.theme.TyloTheme
 import java.util.Stack
@@ -72,6 +75,20 @@ fun HomeContent(
             repeat(10) {
                 Text("Item $it", modifier = Modifier.padding(2.dp))
             }
+
+        }
+
+        Box(
+            modifier = Modifier
+                .height(200.dp)
+                .padding(12.dp),
+        ) {
+
+
+
+            AppBar(modifier = Modifier
+                .align(alignment = Alignment.BottomCenter)
+            )
 
         }
 

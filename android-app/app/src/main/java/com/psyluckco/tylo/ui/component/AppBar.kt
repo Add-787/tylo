@@ -43,7 +43,7 @@ import com.psyluckco.tylo.ui.theme.TyloTheme
 fun AppBar(modifier: Modifier = Modifier) {
 
     BottomAppBar(
-        modifier = Modifier
+        modifier = modifier
             .height(69.dp)
             .width(180.dp)
             .clip(
