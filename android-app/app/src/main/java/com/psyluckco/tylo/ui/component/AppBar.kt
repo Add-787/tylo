@@ -6,6 +6,7 @@
 
 package com.psyluckco.tylo.ui.component
 
+import android.R.attr.contentDescription
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,8 +21,14 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material.icons.outlined.Face
+import androidx.compose.material.icons.outlined.Place
+import androidx.compose.material.icons.outlined.Send
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.BottomAppBarDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,12 +44,11 @@ fun AppBar(modifier: Modifier = Modifier) {
 
     BottomAppBar(
         modifier = Modifier
-            .wrapContentHeight()
-            .width(200.dp)
+            .height(69.dp)
+            .width(180.dp)
             .clip(
-                RoundedCornerShape(16.dp)
-            )
-            .background(color = MaterialTheme.colorScheme.secondary),
+                RoundedCornerShape(65.dp)
+            ),
         containerColor = MaterialTheme.colorScheme.secondary
     ) {
         Row(
@@ -55,17 +61,32 @@ fun AppBar(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .size(40.dp)
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.surface)
+                    .background(MaterialTheme.colorScheme.surface),
+                contentAlignment = Alignment.Center
             ) {
+
+                Icon(
+                    imageVector = Icons.Outlined.Edit,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
 
             }
 
             Box(
                 modifier = Modifier
-                    .size(50.dp)
+                    .size(58.dp)
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.surface)
+                    .background(MaterialTheme.colorScheme.primary),
+                contentAlignment = Alignment.Center
             ) {
+
+                Icon(
+                    imageVector = Icons.Outlined.Place,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onPrimary,
+                    modifier = Modifier.size(42.dp)
+                )
 
             }
 
@@ -73,8 +94,15 @@ fun AppBar(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .size(40.dp)
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.surface)
+                    .background(MaterialTheme.colorScheme.surface),
+                contentAlignment = Alignment.Center
             ) {
+
+                Icon(
+                    imageVector = Icons.Outlined.Send,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
 
             }
 
