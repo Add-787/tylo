@@ -20,13 +20,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.psyluckco.tylo.ui.component.AppBar
 import com.psyluckco.tylo.ui.component.AppSearchBar
 import com.psyluckco.tylo.ui.theme.TyloTheme
-import java.util.Stack
+
 
 @Composable
 fun HomeScreen(
@@ -80,9 +79,13 @@ fun HomeContent(
 
         Box(
             modifier = Modifier
-                .height(200.dp)
-                .padding(12.dp),
+                .fillMaxSize()
+                .padding(all = 19.dp),
         ) {
+            
+            repeat(10) {
+
+            }
 
 
 
