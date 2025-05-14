@@ -13,5 +13,5 @@ data class Transcript constructor(
     val time: LocalTime = LocalTime.now(),
     val name: String,
     val summary: String,
-    val tage: List<String>
+    val tags: List<String>
 )

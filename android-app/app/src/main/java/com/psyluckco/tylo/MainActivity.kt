@@ -23,11 +23,6 @@ class MainActivity : ComponentActivity() {
             TyloTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Column {
-                        Greeting(
-                            name = "Android",
-                            modifier = Modifier.padding(innerPadding)
-                        )
-                        AppLineGraph(dataPoints = listOf(3.0f,6.0f,7.0f,3.0f))
 
                     }
 
@@ -37,18 +32,3 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TyloTheme {
-        Greeting("Android")
-    }
-}
