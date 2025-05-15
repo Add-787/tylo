@@ -15,7 +15,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,13 +32,14 @@ import com.psyluckco.tylo.ui.theme.TyloTheme
 
 @Composable
 fun HomeScreen(
+    snackbarHostState: SnackbarHostState,
     modifier: Modifier = Modifier
 ) {
 
     Scaffold {
         innerPadding ->
         HomeContent(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxSize()
                 .padding(innerPadding)
         )
@@ -50,53 +54,42 @@ fun HomeContent(
     transcripts: List<String> = emptyList()
 ) {
 
-    Column(
-        modifier = modifier
-            .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+//    Column(
+//        modifier = modifier
+//            .fillMaxSize(),
+//        horizontalAlignment = Alignment.CenterHorizontally
+//    ) {
+//
+//        Row(
+//            modifier = modifier.height(180.dp)
+//        ) {
+//
+//        }
+//
+//        AppSearchBar()
+//
+//        Row(
+//            modifier = modifier
+//                .height(65.dp)
+//                .padding(12.dp)
+//                .horizontalScroll(rememberScrollState())
+//        ) {
+//
+//            repeat(10) {
+//                Text("Item $it", modifier = Modifier.padding(2.dp))
+//            }
+//
+//        }
+//
+//    }
+
+    Surface(
+        modifier = modifier,
+        color = MaterialTheme.colorScheme.surface
     ) {
-
-        Row(
-            modifier = modifier.height(180.dp)
-        ) {
-
+        Box(contentAlignment = Alignment.Center) {
+            Text("This is Home screen")
         }
-
-        AppSearchBar()
-
-        Row(
-            modifier = modifier
-                .height(65.dp)
-                .padding(12.dp)
-                .horizontalScroll(rememberScrollState())
-        ) {
-
-            repeat(10) {
-                Text("Item $it", modifier = Modifier.padding(2.dp))
-            }
-
-        }
-
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(all = 19.dp),
-        ) {
-            
-            repeat(10) {
-
-            }
-
-
-
-            AppBar(modifier = Modifier
-                .align(alignment = Alignment.BottomCenter)
-            )
-
-        }
-
-
-
     }
 
 }
@@ -105,6 +98,7 @@ fun HomeContent(
 @Composable
 private fun HomeContentPreview() {
     TyloTheme {
-        HomeContent()
+        HomeContent(
+        )
     }
 }

@@ -6,23 +6,32 @@
 
 package com.psyluckco.tylo.record
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.psyluckco.tylo.ui.theme.TyloTheme
 
 @Composable
-fun RecordScreen(modifier: Modifier = Modifier) {
+fun RecordScreen(
+    snackbarHostState: SnackbarHostState,
+    modifier: Modifier = Modifier
+) {
 
     Scaffold {
         innerPadding ->
             RecordContent(
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxSize()
                     .padding(paddingValues = innerPadding)
             )
@@ -35,10 +44,11 @@ fun RecordContent(modifier: Modifier = Modifier) {
 
     Surface(
         modifier = modifier,
-        color = MaterialTheme.colorScheme.secondary
-
+        color = MaterialTheme.colorScheme.surface
     ) {
-
+        Box(contentAlignment = Alignment.Center) {
+            Text("This is Record screen")
+        }
     }
 }
 
@@ -46,7 +56,9 @@ fun RecordContent(modifier: Modifier = Modifier) {
 @Composable
 fun RecordContentPreview() {
     TyloTheme {
-        RecordScreen()
+        RecordScreen(
+            snackbarHostState = SnackbarHostState()
+        )
     }
 
 }

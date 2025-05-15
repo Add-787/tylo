@@ -73,6 +73,9 @@ dependencies {
     // Firebase
     implementation(libs.firebase.firestore)
 
+    // Timber
+    implementation(libs.timber)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

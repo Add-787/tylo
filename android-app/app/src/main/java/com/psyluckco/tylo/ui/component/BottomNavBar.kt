@@ -6,16 +6,12 @@
 
 package com.psyluckco.tylo.ui.component
 
-import android.R.attr.label
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -29,7 +25,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -47,8 +42,6 @@ fun BottomNavBar(
     onItemSelected: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    
-    var selectedItemIndex by remember { mutableIntStateOf(0) }
 
     Card(
         shape = TyloShapes.medium,
@@ -63,8 +56,8 @@ fun BottomNavBar(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically,
             modifier = modifier
-                .height(29.dp)
-                .width(90.dp)
+                .height(60.dp)
+                .width(265.dp)
         ) {
             items.forEachIndexed { index, item ->
                 AnimatedContent(
@@ -81,11 +74,11 @@ fun BottomNavBar(
 
                     },
                     label = "animated nav button"
-                ) { it ->
+                ) { itemIsSelected ->
                     Icon(
-                        painter = painterResource(if (it) item.selectedIconRes else item.unselectedIconRes),
+                        painter = painterResource(if (itemIsSelected) item.selectedIconRes else item.unselectedIconRes),
                         contentDescription = item.contentDescription,
-                        modifier = modifier.size(15.dp),
+                        modifier = modifier.size(45.dp),
                     )
                 }
 
