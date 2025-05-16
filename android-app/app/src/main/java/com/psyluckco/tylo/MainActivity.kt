@@ -71,13 +71,17 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                 ) {
                     MainNavGraph(
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier.fillMaxSize(),
+                        navController = navController
                     )
                     BottomNavBar(
                         items = navBarItems,
                         onItemSelected = {
                             selectedItemIndex.intValue = it
                         },
+                        navigateToHome = navigationActions.navigateToHome,
+                        navigateToRecord = navigationActions.navigateToRecord,
+                        navigateToCapture = navigationActions.navigateToCapture,
                         modifier = Modifier.align(Alignment.BottomCenter)
                     )
                 }

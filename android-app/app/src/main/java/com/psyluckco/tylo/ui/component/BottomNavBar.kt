@@ -38,11 +38,15 @@ import androidx.compose.ui.unit.dp
 import com.psyluckco.tylo.R
 import com.psyluckco.tylo.ui.theme.TyloShapes
 import com.psyluckco.tylo.ui.theme.TyloTheme
+import kotlin.collections.forEachIndexed
 
 @Composable
 fun BottomNavBar(
     items: List<BottomNavBarItem>,
     onItemSelected: (Int) -> Unit,
+    navigateToHome: () -> Unit = {},
+    navigateToRecord: () -> Unit = {},
+    navigateToCapture: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
 
@@ -83,7 +87,15 @@ fun BottomNavBar(
                     Icon(
                         painter = painterResource(if (itemIsSelected) item.selectedIconRes else item.unselectedIconRes),
                         contentDescription = item.contentDescription,
-                        modifier = modifier.size(45.dp).clickable(onClick = { onItemSelected(index) }),
+                        modifier = modifier.size(45.dp).clickable(onClick = {
+                            onItemSelected(index)
+
+                                when (index) {
+                                    0 -> navigateToHome()
+                                    1 -> navigateToRecord()
+                                    2 -> navigateToCapture()
+                                }
+                        }),
                     )
                 }
 

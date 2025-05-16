@@ -14,6 +14,7 @@ import androidx.navigation.NavHostController
 object TyloDestinations {
     const val HOME_ROUTE = "home"
     const val RECORD_ROUTE = "record"
+    const val CAPTURE_ROUTE = "capture"
 }
 
 /**
@@ -48,6 +49,17 @@ class TyloNavigationActions(private val navController: NavHostController) {
             launchSingleTop = true
             restoreState = true
         }
+    }
+
+    val navigateToCapture: () -> Unit = {
+        navController.navigate(TyloDestinations.CAPTURE_ROUTE) {
+            popUpTo(navController.graph.findStartDestination().id) {
+                saveState = true
+            }
+            launchSingleTop = true
+            restoreState = true
+        }
+
     }
 
 

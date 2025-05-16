@@ -13,13 +13,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.psyluckco.tylo.capture.CaptureRoute
 import com.psyluckco.tylo.home.HomeRoute
 import com.psyluckco.tylo.record.RecordRoute
 
 @Composable
 fun MainNavGraph(
     modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController(),
+    navController: NavHostController,
     startDestination: String = TyloDestinations.HOME_ROUTE
 ) {
 
@@ -39,6 +40,11 @@ fun MainNavGraph(
         composable(route = TyloDestinations.RECORD_ROUTE) {
             navBackStackEntry ->
             RecordRoute()
+        }
+
+        composable(route = TyloDestinations.CAPTURE_ROUTE) {
+            navBackStackEntry ->
+            CaptureRoute()
         }
 
     }
