@@ -69,10 +69,17 @@ class MainActivity : ComponentActivity() {
 
                 Box(
                     modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.BottomCenter
                 ) {
-                    MainNavGraph()
-                    BottomNavBar(items = navBarItems, onItemSelected = { }, modifier = Modifier.align(alignment = Alignment.BottomCenter))
+                    MainNavGraph(
+                        modifier = Modifier.fillMaxSize()
+                    )
+                    BottomNavBar(
+                        items = navBarItems,
+                        onItemSelected = {
+                            selectedItemIndex.intValue = it
+                        },
+                        modifier = Modifier.align(Alignment.BottomCenter)
+                    )
                 }
             }
         }

@@ -10,12 +10,15 @@ import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
@@ -50,7 +53,8 @@ fun BottomNavBar(
         ),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant
-        )
+        ),
+        modifier = modifier.offset(y = (-65).dp)
     ) {
         Row(
             horizontalArrangement = Arrangement.SpaceEvenly,
@@ -69,7 +73,8 @@ fun BottomNavBar(
                         )
                             .togetherWith(
                                 // Exit transition: fade out and slide out to the left
-                                scaleOut(targetScale = 0.8f, animationSpec = tween(durationMillis = 300))
+                                fadeOut(animationSpec = tween(durationMillis = 200)) +
+                                scaleOut(targetScale = 0.8f, animationSpec = tween(durationMillis = 300, delayMillis = 300))
                             )
 
                     },
@@ -78,7 +83,7 @@ fun BottomNavBar(
                     Icon(
                         painter = painterResource(if (itemIsSelected) item.selectedIconRes else item.unselectedIconRes),
                         contentDescription = item.contentDescription,
-                        modifier = modifier.size(45.dp),
+                        modifier = modifier.size(45.dp).clickable(onClick = { onItemSelected(index) }),
                     )
                 }
 
